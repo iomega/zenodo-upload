@@ -1,27 +1,59 @@
-# TSDX Bootstrap
+# Zenodo upload
+
+A JavaScript library to create a new version of a [Zenodo](https://zenodo.org) upload with a file.
+
+Makes a draft copy of an existing Zenodo upload.
+After overwriting the file and version the upload is published.
+
+Can be used to create a [DOI](https://doi.org) for a updated data file.
+A Zenodo upload must already exist using this library.
+
+## Install
+
+```shell
+npm install @iomeg/zenodo-upload
+```
+
+## Usage
+
+```javascript
+import fs from 'fs';
+import zenodo_upload from '@iomeg/zenodo-upload';
+
+const deposition_id = 1234567;
+const file = fs.writeFileSync('somefile.txt', 'sometext', 'utf8');
+const version '1.2.3';
+const access_token = 'sometoken';
+
+await zenodo_upload(deposition_id, file, version, access_token);
+```
+
+## Development
+
+To install dependencies:
+
+```shell
+yarn install
+```
+
+To run the project in development/watch mode. Your project will be rebuilt upon changes.
+
+```shell
+yarn start
+```
+
+To bundle the package to the dist folder.
+
+```shell
+yarn build
+```
+
+To runs the test watcher (Jest) in an interactive mode. By default, runs tests related to files changed since the last commit.
+
+```shell
+yarn test
+```
+
+## Credits
 
 This project was bootstrapped with [TSDX](https://github.com/jaredpalmer/tsdx).
-
-## Local Development
-
-Below is a list of commands you will probably find useful.
-
-### `npm start` or `yarn start`
-
-Runs the project in development/watch mode. Your project will be rebuilt upon changes. TSDX has a special logger for you convenience. Error messages are pretty printed and formatted for compatibility VS Code's Problems tab.
-
-<img src="https://user-images.githubusercontent.com/4060187/52168303-574d3a00-26f6-11e9-9f3b-71dbec9ebfcb.gif" width="600" />
-
-Your library will be rebuilt if you make edits.
-
-### `npm run build` or `yarn build`
-
-Bundles the package to the `dist` folder.
-The package is optimized and bundled with Rollup into multiple formats (CommonJS, UMD, and ES Module).
-
-<img src="https://user-images.githubusercontent.com/4060187/52168322-a98e5b00-26f6-11e9-8cf6-222d716b75ef.gif" width="600" />
-
-### `npm test` or `yarn test`
-
-Runs the test watcher (Jest) in an interactive mode.
-By default, runs tests related to files changed since the last commit.
