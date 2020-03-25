@@ -1,5 +1,7 @@
 # Zenodo upload
 
+[![CI](https://github.com/iomega/zenodo-upload/workflows/CI/badge.svg)](https://github.com/iomega/zenodo-upload/actions?query=workflow%3ACI)
+
 A JavaScript library to create a new version of a [Zenodo](https://zenodo.org) upload with a file.
 
 Makes a draft copy of an existing Zenodo upload.
@@ -59,3 +61,5 @@ yarn test
 ## Credits
 
 This project was bootstrapped with [TSDX](https://github.com/jaredpalmer/tsdx).
+
+This project follows the [fair-software-nl](https://fair-software.nl) recommendations.
