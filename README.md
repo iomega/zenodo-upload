@@ -16,6 +16,8 @@ npm install @iomeg/zenodo-upload
 
 ## Usage
 
+To create new version of [https://zenodo.org/record/1234567](https://zenodo.org/record/1234567).
+
 ```javascript
 import fs from 'fs';
 import zenodo_upload from '@iomeg/zenodo-upload';
