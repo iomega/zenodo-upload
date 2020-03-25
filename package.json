@@ -37,6 +37,7 @@
     "@types/jest": "^25.1.4",
     "@types/node-fetch": "^2.5.5",
     "@types/tmp": "^0.1.0",
+    "@types/yargs": "^15.0.4",
     "husky": "^4.2.3",
     "tmp-promise": "^2.0.2",
     "tsdx": "^0.13.0",
@@ -47,6 +48,10 @@
   },
   "dependencies": {
     "file-type": "^14.1.4",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "yargs": "^15.3.1"
+  },
+  "bin": {
+    "zenodo_upload": "./dist/cli.js"
   }
 }
