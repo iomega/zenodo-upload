@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.3] - 2020-03-25
+
+### Removed
+
+* Publishing of package to [https://github.com/iomega/zenodo-upload/packages](https://github.com/iomega/zenodo-upload/packages)
+
 ## [0.2.2] - 2020-03-25
 
 ### Fixes
