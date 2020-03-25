@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.2] - 2020-03-25
+
+### Fixes
+
+* html url is undefined ([#2](https://github.com/iomega/zenodo-upload/issues/2))
+
 ## [0.2.1] - 2020-03-25
 
 Tying to get automated publishing after a GitHub release is created to work.
