@@ -93,7 +93,7 @@ const mockedZenodoSandboxAPI = async (url: string, init: RequestInit) => {
     const response: any = {
       id: 7654321,
       links: {
-        html: 'https://sandbox.zenodo.org/record/7654321',
+        latest_html: 'https://sandbox.zenodo.org/record/7654321',
         doi: 'https://doi.org/10.5072/zenodo.7654321',
       },
       metadata: {

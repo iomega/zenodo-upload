@@ -22,21 +22,25 @@ export class ZenodoDraft {
   private access_token: string;
   private bucket = '';
   private _metadata: any;
+
   constructor(url: string, access_token: string) {
     this.url = url;
     this.access_token = access_token;
   }
+
   async set_version(version: string) {
     const metadata = await this.get_metadata();
     metadata.version = version;
     await this.set_metadata(metadata);
   }
+
   async get_metadata() {
     if (!this._metadata) {
       await this.build_cache();
     }
     return JSON.parse(JSON.stringify(this._metadata));
   }
+
   async set_metadata(metadata: any) {
     const body = JSON.stringify({ metadata });
     const init = {
@@ -55,6 +59,7 @@ export class ZenodoDraft {
       throw new Error(`Zenodo API communication error: ${response.statusText}`);
     }
   }
+
   async add_file(file: string) {
     if (!this.bucket) {
       await this.build_cache();
@@ -81,6 +86,7 @@ export class ZenodoDraft {
       throw new Error(`Zenodo API communication error: ${response.statusText}`);
     }
   }
+
   async publish() {
     const url = this.url + '/actions/publish';
     const init = {
@@ -95,13 +101,14 @@ export class ZenodoDraft {
       const result: PublishResult = {
         id: body.id,
         doi: body.links.doi,
-        html: body.links.html,
+        html: body.links.latest_html,
       };
       return result;
     } else {
       throw new Error(`Zenodo API communication error: ${response.statusText}`);
     }
   }
+
   private async build_cache() {
     const init = {
       method: 'GET',
