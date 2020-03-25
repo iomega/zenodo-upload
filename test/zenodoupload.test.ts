@@ -31,8 +31,7 @@ const mockedZenodoSandboxAPI = async (url: string, init: RequestInit) => {
     };
     return new Response(JSON.stringify(response), response_init);
   } else if (
-    url ===
-      'https://sandbox.zenodo.org/api/deposit/depositions/7654321' &&
+    url === 'https://sandbox.zenodo.org/api/deposit/depositions/7654321' &&
     init.method === 'GET'
   ) {
     const response: any = {
@@ -70,18 +69,21 @@ const mockedZenodoSandboxAPI = async (url: string, init: RequestInit) => {
       },
     };
     return new Response(JSON.stringify(response), response_init);
-  } else if (url === 'https://sandbox.zenodo.org/api/deposit/depositions/7654321' && init.method ==='PUT') {
+  } else if (
+    url === 'https://sandbox.zenodo.org/api/deposit/depositions/7654321' &&
+    init.method === 'PUT'
+  ) {
     const response: any = {
-        'metadata': {
-            'version': '1.2.3'
-        },
+      metadata: {
+        version: '1.2.3',
+      },
     };
     const response_init = {
-        status: 200,
-        statusText: 'Accepted',
-        headers: {
-            'Content-Type': 'application/json'
-        }
+      status: 200,
+      statusText: 'Accepted',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     };
     return new Response(JSON.stringify(response), response_init);
   } else if (
@@ -131,7 +133,13 @@ describe('zenodo_upload()', () => {
       beforeAll(async () => {
         mockedfetch.mockImplementation(mockedZenodoSandboxAPI);
 
-        result = await zenodo_upload(1234567, dummy_file, '1.2.3', 'sometoken', true);
+        result = await zenodo_upload(
+          1234567,
+          dummy_file,
+          '1.2.3',
+          'sometoken',
+          true
+        );
       });
 
       it('should create a draft deposition', () => {
@@ -204,31 +212,59 @@ describe('zenodo_upload()', () => {
 
     describe('against a broken Zenodo API', () => {
       describe.each([
-        ['when wrong deposition id is given', 'https://sandbox.zenodo.org/api/deposit/depositions/1234567/actions/newversion', 'POST'],
-        ['when retrieving new deposition fails', 'https://sandbox.zenodo.org/api/deposit/depositions/7654321', 'GET'],
-        ['when upload fails', 'https://sandbox.zenodo.org/api/files/1e1986e8-f4d5-4d17-91be-2159f9c62b13/somefile.txt', 'PUT'],
-        ['when setting new version fails', 'https://sandbox.zenodo.org/api/deposit/depositions/7654321', 'PUT'],
-        ['when publishing fails', 'https://sandbox.zenodo.org/api/deposit/depositions/7654321/actions/publish', 'POST']
-    ])('should throw error', (why, broken_url, broken_method) => {
+        [
+          'when wrong deposition id is given',
+          'https://sandbox.zenodo.org/api/deposit/depositions/1234567/actions/newversion',
+          'POST',
+        ],
+        [
+          'when retrieving new deposition fails',
+          'https://sandbox.zenodo.org/api/deposit/depositions/7654321',
+          'GET',
+        ],
+        [
+          'when upload fails',
+          'https://sandbox.zenodo.org/api/files/1e1986e8-f4d5-4d17-91be-2159f9c62b13/somefile.txt',
+          'PUT',
+        ],
+        [
+          'when setting new version fails',
+          'https://sandbox.zenodo.org/api/deposit/depositions/7654321',
+          'PUT',
+        ],
+        [
+          'when publishing fails',
+          'https://sandbox.zenodo.org/api/deposit/depositions/7654321/actions/publish',
+          'POST',
+        ],
+      ])('should throw error', (why, broken_url, broken_method) => {
         it(why, async () => {
-            expect.assertions(1);
-            mockedfetch.mockImplementation((url, init) => {
-                if (url === broken_url && init.method === broken_method) {
-                    return new Response('error', {
-                        status: 404,
-                        statusText: 'Not found'
-                    });
-                }
-                return mockedZenodoSandboxAPI(url, init);
-            });
-
-            try {
-                await zenodo_upload(1234567, dummy_file, '1.2.3', 'sometoken', true);
-            } catch (error) {
-                expect(error).toEqual((new Error('Zenodo API communication error: Not found')));
+          expect.assertions(1);
+          mockedfetch.mockImplementation((url, init) => {
+            if (url === broken_url && init.method === broken_method) {
+              return new Response('error', {
+                status: 404,
+                statusText: 'Not found',
+              });
             }
+            return mockedZenodoSandboxAPI(url, init);
+          });
+
+          try {
+            await zenodo_upload(
+              1234567,
+              dummy_file,
+              '1.2.3',
+              'sometoken',
+              true
+            );
+          } catch (error) {
+            expect(error).toEqual(
+              new Error('Zenodo API communication error: Not found')
+            );
+          }
         });
-    });
+      });
     });
   });
 

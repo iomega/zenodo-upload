@@ -1,4 +1,3 @@
-
 export function determine_api_base_url(sandbox: boolean) {
   if (sandbox) {
     return 'https://sandbox.zenodo.org/api';

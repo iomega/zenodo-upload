@@ -45,8 +45,7 @@ export class ZenodoDraft {
     if (response.ok) {
       const json = await response.json();
       this._metadata = json.metadata;
-    }
-    else {
+    } else {
       throw new Error(`Zenodo API communication error: ${response.statusText}`);
     }
   }
@@ -72,8 +71,7 @@ export class ZenodoDraft {
     if (response.ok) {
       const rbody: DepositionFile = await response.json();
       return rbody;
-    }
-    else {
+    } else {
       throw new Error(`Zenodo API communication error: ${response.statusText}`);
     }
   }
@@ -92,8 +90,7 @@ export class ZenodoDraft {
         doi: body.links.doi,
         html: body.links.html,
       };
-    }
-    else {
+    } else {
       throw new Error(`Zenodo API communication error: ${response.statusText}`);
     }
   }
@@ -107,8 +104,7 @@ export class ZenodoDraft {
       const body = await response.json();
       this.bucket = body.links.bucket;
       this._metadata = body.metadata;
-    }
-    else {
+    } else {
       throw new Error(`Zenodo API communication error: ${response.statusText}`);
     }
   }
