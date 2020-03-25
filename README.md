@@ -1,5 +1,6 @@
 # Zenodo upload
 
+[![npm version](https://badge.fury.io/js/%40iomeg%2Fzenodo-upload.svg)](https://badge.fury.io/js/%40iomeg%2Fzenodo-upload)
 [![CI](https://github.com/iomega/zenodo-upload/workflows/CI/badge.svg)](https://github.com/iomega/zenodo-upload/actions?query=workflow%3ACI)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=iomega_zenodo-upload&metric=alert_status)](https://sonarcloud.io/dashboard?id=iomega_zenodo-upload)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=iomega_zenodo-upload&metric=coverage)](https://sonarcloud.io/dashboard?id=iomega_zenodo-upload)
