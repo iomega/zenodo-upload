@@ -5,6 +5,7 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=iomega_zenodo-upload&metric=alert_status)](https://sonarcloud.io/dashboard?id=iomega_zenodo-upload)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=iomega_zenodo-upload&metric=coverage)](https://sonarcloud.io/dashboard?id=iomega_zenodo-upload)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3726851.svg)](https://doi.org/10.5281/zenodo.3726851)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/3805/badge)](https://bestpractices.coreinfrastructure.org/projects/3805)
 
 A JavaScript library to create a new version of a [Zenodo](https://zenodo.org) upload with a file.
 
