@@ -3,6 +3,7 @@
 [![CI](https://github.com/iomega/zenodo-upload/workflows/CI/badge.svg)](https://github.com/iomega/zenodo-upload/actions?query=workflow%3ACI)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=iomega_zenodo-upload&metric=alert_status)](https://sonarcloud.io/dashboard?id=iomega_zenodo-upload)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=iomega_zenodo-upload&metric=coverage)](https://sonarcloud.io/dashboard?id=iomega_zenodo-upload)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3726851.svg)](https://doi.org/10.5281/zenodo.3726851)
 
 A JavaScript library to create a new version of a [Zenodo](https://zenodo.org) upload with a file.
 
