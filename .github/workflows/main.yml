@@ -41,6 +41,9 @@ jobs:
         env:
           CI: true
 
+      - name: Relativize coverage and eslint report
+        run: sed -i "s+$PWD/++g" coverage/lcov.info eslint-report.json
+
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         env:
