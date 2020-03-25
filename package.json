@@ -42,11 +42,11 @@
     "tslib": "^1.11.1",
     "typedoc": "^0.17.3",
     "typescript": "^3.8.3",
+    "tmp-promise": "^2.0.2",
     "unzipper": "^0.10.10"
   },
   "dependencies": {
     "file-type": "^14.1.4",
-    "node-fetch": "^2.6.0",
-    "tmp-promise": "^2.0.2"
+    "node-fetch": "^2.6.0"
   }
 }
