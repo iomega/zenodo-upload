@@ -11,6 +11,12 @@ export interface DepositionFile {
   checksum: string;
 }
 
+export interface PublishResult {
+  id: number;
+  doi: string;
+  html: string;
+}
+
 export class ZenodoDraft {
   private url: string;
   private access_token: string;
@@ -85,11 +91,13 @@ export class ZenodoDraft {
     if (response.ok) {
       const body = await response.json();
       this._metadata = body.metadata;
-      return {
+
+      const result: PublishResult = {
         id: body.id,
         doi: body.links.doi,
         html: body.links.html,
       };
+      return result;
     } else {
       throw new Error(`Zenodo API communication error: ${response.statusText}`);
     }

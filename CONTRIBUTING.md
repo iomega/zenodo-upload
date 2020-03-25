@@ -32,6 +32,7 @@ The sections below outline the steps in each case.
 1. if needed, fork the repository to your own Github profile and create your own feature branch off of the latest master commit. While working on your feature branch, make sure to stay up to date with the master branch by pulling in changes, possibly from the 'upstream' repository (follow the instructions [here](https://help.github.com/articles/configuring-a-remote-for-a-fork/) and [here](https://help.github.com/articles/syncing-a-fork/));
 1. make sure the existing unit tests still work by running ``yarn test``;
 1. make sure that no lint errors are present work by running ``yarn lint``;
+1. make sure the API documentation is in-sync by running ``yarn apidocs``;
 1. add your own unit tests and integration tests (if necessary);
 1. update or expand the documentation;
 1. [push](http://rogerdudler.github.io/git-guide/) your feature branch to (your fork of) the Xenon repository on GitHub;

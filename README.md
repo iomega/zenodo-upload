@@ -12,6 +12,8 @@ After overwriting the file and version the upload is published.
 Can be used to create a [DOI](https://doi.org) for a updated data file.
 A Zenodo upload must already exist using this library.
 
+[API documentation](https://iomega.github.io/zenodo-upload/modules/_index_.html#).
+
 ## Install
 
 ```shell

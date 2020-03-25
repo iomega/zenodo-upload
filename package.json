@@ -15,7 +15,8 @@
     "build": "tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint",
-    "prepare": "tsdx build"
+    "prepare": "tsdx build",
+    "apidocs": "typedoc --mode modules --out docs src"
   },
   "peerDependencies": {},
   "husky": {
@@ -35,9 +36,11 @@
   "devDependencies": {
     "@types/jest": "^25.1.4",
     "@types/node-fetch": "^2.5.5",
+    "@types/tmp": "^0.1.0",
     "husky": "^4.2.3",
     "tsdx": "^0.13.0",
     "tslib": "^1.11.1",
+    "typedoc": "^0.17.3",
     "typescript": "^3.8.3",
     "unzipper": "^0.10.10"
   },

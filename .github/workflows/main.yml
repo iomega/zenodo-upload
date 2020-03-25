@@ -41,6 +41,11 @@ jobs:
         env:
           CI: true
 
+      - name: Generate API docs
+        run: yarn apidocs
+        env:
+          CI: true
+
       - name: Relativize coverage and eslint report
         run: sed -i "s+$PWD/++g" coverage/lcov.info eslint-report.json
 
