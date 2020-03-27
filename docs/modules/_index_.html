@@ -71,6 +71,12 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Classes</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-class tsd-parent-kind-module"><a href="../classes/_index_.draftdiscardederror.html" class="tsd-kind-icon">Draft<wbr>Discarded<wbr>Error</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_index_.html#zenodo_upload" class="tsd-kind-icon">zenodo_<wbr>upload</a></li>
@@ -85,13 +91,13 @@
 					<a name="zenodo_upload" class="tsd-anchor"></a>
 					<h3>zenodo_<wbr>upload</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">zenodo_<wbr>upload<span class="tsd-signature-symbol">(</span>deposition_id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, file<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, version<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, access_token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, sandbox<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_zenodo_draft_.publishresult.html" class="tsd-signature-type">PublishResult</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">zenodo_<wbr>upload<span class="tsd-signature-symbol">(</span>deposition_id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, file<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, version<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, access_token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_create_draft_.options.html" class="tsd-signature-type">Options</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_zenodo_draft_.publishresult.html" class="tsd-signature-type">PublishResult</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/1e5f476/src/index.ts#L30">index.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/index.ts#L43">src/index.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -110,6 +116,11 @@
 <span class="hljs-keyword">const</span> access_token = <span class="hljs-string">'sometoken'</span>;
 
 <span class="hljs-keyword">await</span> zenodo_upload(deposition_id, file, version, access_token);</code></pre>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>{DraftDiscardedError} When <code>options.checksum</code> and <code>file</code> is already present.</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -128,19 +139,19 @@
 								<li>
 									<h5>version: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Version to use.</p>
+										<p>Version to use</p>
 									</div>
 								</li>
 								<li>
 									<h5>access_token: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>(<a href="https://sandbox.zenodo.org/account/settings/applications/tokens/new/">https://sandbox.zenodo.org/account/settings/applications/tokens/new/</a>) with the <code>deposit:actions</code> and <code>deposit:write</code> scopes.</p>
+										<p>The <a href="https://sandbox.zenodo.org/account/settings/applications/tokens/new/">Zenodo personal access token</a> with <code>deposit:actions</code> and <code>deposit:write</code> scopes.</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> sandbox: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="../interfaces/_create_draft_.options.html" class="tsd-signature-type">Options</a><span class="tsd-signature-symbol"> = {}</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Whether to use the production Zenodo environment or the sandbox environment.</p>
+										<p>Advanced options</p>
 									</div>
 								</li>
 							</ul>
@@ -173,6 +184,9 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="../classes/_index_.draftdiscardederror.html" class="tsd-kind-icon">Draft<wbr>Discarded<wbr>Error</a>
+					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_index_.html#zenodo_upload" class="tsd-kind-icon">zenodo_<wbr>upload</a>
 					</li>

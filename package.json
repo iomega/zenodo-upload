@@ -1,5 +1,5 @@
 {
-  "version": "0.2.3",
+  "version": "0.3.0",
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -16,7 +16,7 @@
     "test": "tsdx test",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
-    "apidocs": "typedoc --mode modules --out docs src"
+    "apidocs": "typedoc --disableOutputCheck --mode modules --out docs src"
   },
   "peerDependencies": {},
   "husky": {
@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "file-type": "^14.1.4",
+    "hasha": "^5.2.0",
     "node-fetch": "^2.6.0"
   }
 }
