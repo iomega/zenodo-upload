@@ -16,7 +16,7 @@
     "test": "tsdx test",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
-    "apidocs": "typedoc --mode modules --out docs src"
+    "apidocs": "typedoc --disableOutputCheck --mode modules --out docs src"
   },
   "peerDependencies": {},
   "husky": {
