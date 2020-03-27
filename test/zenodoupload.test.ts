@@ -46,7 +46,7 @@ const mockedZenodoSandboxAPI = async (url: string, init: RequestInit) => {
           id: 'fileid1',
           filename: 'somefile.txt',
           filesize: 1,
-          checksum: 'md5:2067974dbfa4906d06f127781fc3ef38',
+          checksum: '2067974dbfa4906d06f127781fc3ef38',
         },
       ],
     };
@@ -66,7 +66,7 @@ const mockedZenodoSandboxAPI = async (url: string, init: RequestInit) => {
       id: 'fileid1',
       filename: 'somefile.txt',
       filesize: 9,
-      checksum: 'md5:4e74fa271381933159558bf36bed0a50',
+      checksum: '4e74fa271381933159558bf36bed0a50',
     };
     const response_init = {
       status: 201,
@@ -93,7 +93,7 @@ const mockedZenodoSandboxAPI = async (url: string, init: RequestInit) => {
           id: 'fileid1',
           filename: 'somefile.txt',
           filesize: 9,
-          checksum: 'md5:4e74fa271381933159558bf36bed0a50',
+          checksum: '4e74fa271381933159558bf36bed0a50',
         },
       ],
     };
@@ -125,7 +125,7 @@ const mockedZenodoSandboxAPI = async (url: string, init: RequestInit) => {
           id: 'fileid1',
           filename: 'somefile.txt',
           filesize: 9,
-          checksum: 'md5:4e74fa271381933159558bf36bed0a50',
+          checksum: '4e74fa271381933159558bf36bed0a50',
         },
       ],
     };
@@ -379,7 +379,7 @@ describe('zenodo_upload()', () => {
                     id: 'fileid1',
                     filename: 'somefile.txt',
                     filesize: 9,
-                    checksum: 'md5:a29e90948f4eee52168fab5fa9cfbcf8',
+                    checksum: 'a29e90948f4eee52168fab5fa9cfbcf8',
                   },
                 ],
               };
