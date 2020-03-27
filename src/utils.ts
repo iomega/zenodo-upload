@@ -24,9 +24,14 @@ export interface DepositionFile {
 export class FilePresentError extends Error {
   constructor(m: string) {
     super(m);
-
-    // Set the prototype explicitly.
     Object.setPrototypeOf(this, FilePresentError.prototype);
+  }
+}
+
+export class UnspportedHashingAlgorithm extends Error {
+  constructor(m: string) {
+    super(m);
+    Object.setPrototypeOf(this, UnspportedHashingAlgorithm.prototype);
   }
 }
 
@@ -39,8 +44,7 @@ export async function is_same_file_present(
   if (!other) {
     return false;
   }
-  const algorithm = other.checksum.substr(0, other.checksum.indexOf(':'));
-  const checksum = algorithm + ':' + (await fromFile(file, { algorithm }));
+  const checksum = await fromFile(file, { algorithm: 'md5' });
   if (checksum === other.checksum) {
     throw new FilePresentError(`File ${file} is present`);
   }
