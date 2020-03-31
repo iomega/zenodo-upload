@@ -18,6 +18,15 @@ export const DEFAULT_OPTIONS = Object.freeze({
   checksum: false,
 });
 
+/**
+ * Create a draft from an existing Zenodo upload
+ *
+ * @param deposition_id The deposition identifier of a Zenodo upload
+ * @param access_token The [Zenodo personal access token](https://sandbox.zenodo.org/account/settings/applications/tokens/new/) with the `deposit:actions` and `deposit:write` scopes.
+ * @param options
+ *
+ * @throws {Error} When communication with Zenodo API fails
+ */
 export async function create_draft(
   deposition_id: number,
   access_token: string,

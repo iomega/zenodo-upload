@@ -10,6 +10,11 @@ export interface PublishResult {
   html: string;
 }
 
+/**
+ * Manage draft entry on Zenodo
+ *
+ * A draft can be created with {@link create_draft} function.
+ */
 export class ZenodoDraft {
   private url: string;
   private access_token: string;
@@ -18,18 +23,38 @@ export class ZenodoDraft {
   private _metadata: any;
   private files: DepositionFile[] = [];
 
+  /**
+   *
+   * @param url URL of draft Zenodo upload
+   * @param access_token The [Zenodo personal access token](https://sandbox.zenodo.org/account/settings/applications/tokens/new/) with the `deposit:actions` and `deposit:write` scopes.
+   * @param checksum When true then an added file is checksum matched with file already in draft. If it matches an error is thrown.
+   */
   constructor(url: string, access_token: string, checksum: boolean) {
     this.url = url;
     this.access_token = access_token;
     this.checksum = checksum;
   }
 
+  /**
+   * Set version of draft
+   *
+   * @param version Update draft with given version
+   *
+   * @throws {Error} When communication with Zenodo API fails
+   */
   async set_version(version: string) {
     const metadata = await this.get_metadata();
     metadata.version = version;
     await this.set_metadata(metadata);
   }
 
+  /**
+   * Get copy of the metadata.
+   *
+   * @returns metadata object of draft
+   *
+   * @throws {Error} When communication with Zenodo API fails
+   */
   async get_metadata() {
     if (!this._metadata) {
       await this.build_cache();
@@ -37,6 +62,21 @@ export class ZenodoDraft {
     return JSON.parse(JSON.stringify(this._metadata));
   }
 
+  /**
+   * Overwrite complete metadata of draft
+   *
+   * For example
+   *
+   * ```javascript
+   * const metadata = await draft.get_metdata();
+   * metadata.title = 'My new title';
+   * await draft.set_metadata(metadata);
+   * ```
+   *
+   * @param metadata New metadata object for draft
+   *
+   * @throws {Error} When communication with Zenodo API fails
+   */
   async set_metadata(metadata: any) {
     const body = JSON.stringify({ metadata });
     const init = {
@@ -56,6 +96,14 @@ export class ZenodoDraft {
     }
   }
 
+  /**
+   * Add file to draft
+   *
+   * @param file Path to file
+   *
+   * @throws {FilePresentError} When checksum=true and file checksum matched with file already in draft.
+   * @throws {Error} When communication with Zenodo API fails
+   */
   async add_file(file: string) {
     if (!this.bucket) {
       await this.build_cache();
@@ -88,6 +136,11 @@ export class ZenodoDraft {
     }
   }
 
+  /**
+   * Publish draft Zenodo upload
+   *
+   * @throws {Error} When communication with Zenodo API fails
+   */
   async publish() {
     const url = this.url + '/actions/publish';
     const init = {
@@ -110,6 +163,13 @@ export class ZenodoDraft {
     }
   }
 
+  /**
+   * Discard the draft.
+   *
+   * Any other methods on the object will fail after discarding.
+   *
+   * @throws {Error} When communication with Zenodo API fails
+   */
   async discard() {
     const init = {
       method: 'DELETE',

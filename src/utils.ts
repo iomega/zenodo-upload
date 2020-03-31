@@ -28,13 +28,6 @@ export class FilePresentError extends Error {
   }
 }
 
-export class UnspportedHashingAlgorithm extends Error {
-  constructor(m: string) {
-    super(m);
-    Object.setPrototypeOf(this, UnspportedHashingAlgorithm.prototype);
-  }
-}
-
 export async function is_same_file_present(
   file: string,
   bag: DepositionFile[]

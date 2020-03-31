@@ -71,94 +71,25 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Classes</h3>
+							<h3>Variables</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-class tsd-parent-kind-module"><a href="../classes/_index_.draftdiscardederror.html" class="tsd-kind-icon">Draft<wbr>Discarded<wbr>Error</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Functions</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_index_.html#zenodo_upload" class="tsd-kind-icon">zenodo_<wbr>upload</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_index_.html#climain" class="tsd-kind-icon">climain</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="zenodo_upload" class="tsd-anchor"></a>
-					<h3>zenodo_<wbr>upload</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">zenodo_<wbr>upload<span class="tsd-signature-symbol">(</span>deposition_id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, file<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, version<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, access_token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_create_draft_.options.html" class="tsd-signature-type">Options</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_zenodo_draft_.publishresult.html" class="tsd-signature-type">PublishResult</a><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/index.ts#L43">src/index.ts:43</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Create a new version of a Zenodo upload with a file.</p>
-								</div>
-								<p>Makes a draft copy of an existing Zenodo upload.
-								After overwriting the file and version the upload is published.</p>
-								<p>For example</p>
-								<pre><code class="language-javascript"><span class="hljs-keyword">import</span> fs <span class="hljs-keyword">from</span> <span class="hljs-string">'fs'</span>;
-<span class="hljs-keyword">import</span> zenodo_upload <span class="hljs-keyword">from</span> <span class="hljs-string">'@iomeg/zenodo-upload'</span>;
-
-<span class="hljs-keyword">const</span> deposition_id = <span class="hljs-number">1234567</span>;
-<span class="hljs-keyword">const</span> file = fs.writeFileSync(<span class="hljs-string">'somefile.txt'</span>, <span class="hljs-string">'sometext'</span>, <span class="hljs-string">'utf8'</span>);
-<span class="hljs-keyword">const</span> version <span class="hljs-string">'1.2.3'</span>;
-<span class="hljs-keyword">const</span> access_token = <span class="hljs-string">'sometoken'</span>;
-
-<span class="hljs-keyword">await</span> zenodo_upload(deposition_id, file, version, access_token);</code></pre>
-								<dl class="tsd-comment-tags">
-									<dt>throws</dt>
-									<dd><p>{DraftDiscardedError} When <code>options.checksum</code> and <code>file</code> is already present.</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>deposition_id: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Zenodo upload identifier</p>
-									</div>
-								</li>
-								<li>
-									<h5>file: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Path to file to upload</p>
-									</div>
-								</li>
-								<li>
-									<h5>version: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Version to use</p>
-									</div>
-								</li>
-								<li>
-									<h5>access_token: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The <a href="https://sandbox.zenodo.org/account/settings/applications/tokens/new/">Zenodo personal access token</a> with <code>deposit:actions</code> and <code>deposit:write</code> scopes.</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="../interfaces/_create_draft_.options.html" class="tsd-signature-type">Options</a><span class="tsd-signature-symbol"> = {}</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Advanced options</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_zenodo_draft_.publishresult.html" class="tsd-signature-type">PublishResult</a><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>The id, url of the html page and the DOI of the new version.</p>
-						</li>
-					</ul>
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
+					<a name="climain" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> climain</h3>
+					<div class="tsd-signature tsd-kind-icon">climain<span class="tsd-signature-symbol">:</span> <a href="_cli_.html#main" class="tsd-signature-type">main</a><span class="tsd-signature-symbol"> = main</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/8f61a46/src/index.ts#L6">src/index.ts:6</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -167,6 +98,9 @@
 				<ul>
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_cli_.html">&quot;cli&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_create_draft_.html">&quot;create_<wbr>draft&quot;</a>
@@ -180,15 +114,15 @@
 					<li class=" tsd-kind-module">
 						<a href="_zenodo_draft_.html">&quot;zenodo_<wbr>draft&quot;</a>
 					</li>
+					<li class=" tsd-kind-module">
+						<a href="_zenodo_upload_.html">&quot;zenodo_<wbr>upload&quot;</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/_index_.draftdiscardederror.html" class="tsd-kind-icon">Draft<wbr>Discarded<wbr>Error</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="_index_.html#zenodo_upload" class="tsd-kind-icon">zenodo_<wbr>upload</a>
+					<li class=" tsd-kind-variable tsd-parent-kind-module">
+						<a href="_index_.html#climain" class="tsd-kind-icon">climain</a>
 					</li>
 				</ul>
 			</nav>
@@ -200,6 +134,7 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 			</ul>
 			<ul class="tsd-legend">

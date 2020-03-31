@@ -3,7 +3,7 @@ import path from 'path';
 import fetch from 'node-fetch';
 import { dir } from 'tmp-promise';
 
-import zenodo_upload, { DraftDiscardedError } from '../src';
+import zenodo_upload, { DraftDiscardedError } from '../src/zenodo_upload';
 
 jest.mock('node-fetch');
 const { Response } = jest.requireActual('node-fetch');
