@@ -27,17 +27,41 @@ npm install @iomeg/zenodo-upload
 
 To create new version of [https://zenodo.org/record/1234567](https://zenodo.org/record/1234567).
 
+Example usage using NodeJS:
+
+```javascript
+const fs = require('fs');
+const zenodo_upload = require('@iomeg/zenodo-upload').default;
+
+const deposition_id = 1234567;
+const filename = 'somefile.txt';
+fs.writeFileSync(filename, 'sometext', 'utf8');
+const version = '1.2.3';
+const access_token = 'sometoken';
+
+zenodo_upload(deposition_id, filename, version, access_token)
+    .then(r => console.log(`New zenodo entry ${r.doi} created`))
+    .catch(e => console.error(e))
+;
+```
+
+Or in modern javascript
+
 ```javascript
 import fs from 'fs';
 import zenodo_upload from '@iomeg/zenodo-upload';
 
 const deposition_id = 1234567;
-const file = fs.writeFileSync('somefile.txt', 'sometext', 'utf8');
-const version '1.2.3';
+const filename = 'somefile.txt';
+await fs.promises.writeFile(filename, 'sometext', 'utf8');
+const version = '1.2.3';
 const access_token = 'sometoken';
 
-await zenodo_upload(deposition_id, file, version, access_token);
+const result = await zenodo_upload(deposition_id, filename, version, access_token);
+console.log(`New zenodo entry ${result.doi} created`);
 ```
+
+To run the example code you will need a valid Zenodo access token and a deposition id that can be written to by that token.
 
 ## Development
 
