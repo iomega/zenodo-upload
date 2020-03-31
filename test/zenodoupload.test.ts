@@ -3,11 +3,10 @@ import path from 'path';
 import fetch from 'node-fetch';
 import { dir } from 'tmp-promise';
 
-import zenodo_upload from '../src';
+import zenodo_upload, { DraftDiscardedError } from '../src';
 
 jest.mock('node-fetch');
 const { Response } = jest.requireActual('node-fetch');
-// const realFetch = jest.requireActual('node-fetch');
 
 const mockedfetch = (fetch as any) as jest.Mock;
 
@@ -42,6 +41,14 @@ const mockedZenodoSandboxAPI = async (url: string, init: RequestInit) => {
       metadata: {
         version: '0.1.0',
       },
+      files: [
+        {
+          id: 'fileid1',
+          filename: 'somefile.txt',
+          filesize: 1,
+          checksum: '2067974dbfa4906d06f127781fc3ef38',
+        },
+      ],
     };
     const response_init = {
       status: 200,
@@ -74,9 +81,21 @@ const mockedZenodoSandboxAPI = async (url: string, init: RequestInit) => {
     init.method === 'PUT'
   ) {
     const response: any = {
+      links: {
+        bucket:
+          'https://sandbox.zenodo.org/api/files/1e1986e8-f4d5-4d17-91be-2159f9c62b13',
+      },
       metadata: {
         version: '1.2.3',
       },
+      files: [
+        {
+          id: 'fileid1',
+          filename: 'somefile.txt',
+          filesize: 9,
+          checksum: '4e74fa271381933159558bf36bed0a50',
+        },
+      ],
     };
     const response_init = {
       status: 200,
@@ -93,12 +112,22 @@ const mockedZenodoSandboxAPI = async (url: string, init: RequestInit) => {
     const response: any = {
       id: 7654321,
       links: {
+        bucket:
+          'https://sandbox.zenodo.org/api/files/1e1986e8-f4d5-4d17-91be-2159f9c62b13',
         latest_html: 'https://sandbox.zenodo.org/record/7654321',
         doi: 'https://doi.org/10.5072/zenodo.7654321',
       },
       metadata: {
         version: '1.2.3',
       },
+      files: [
+        {
+          id: 'fileid1',
+          filename: 'somefile.txt',
+          filesize: 9,
+          checksum: '4e74fa271381933159558bf36bed0a50',
+        },
+      ],
     };
     const response_init = {
       status: 202,
@@ -108,6 +137,18 @@ const mockedZenodoSandboxAPI = async (url: string, init: RequestInit) => {
       },
     };
     return new Response(JSON.stringify(response), response_init);
+  } else if (
+    url === 'https://sandbox.zenodo.org/api/deposit/depositions/7654321' &&
+    init.method === 'DELETE'
+  ) {
+    const response_init = {
+      status: 201,
+      statusText: 'Created',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    return new Response('', response_init);
   }
   throw new Error('URL not mocked, ' + url);
 };
@@ -138,7 +179,7 @@ describe('zenodo_upload()', () => {
           dummy_file,
           '1.2.3',
           'sometoken',
-          true
+          { sandbox: true }
         );
       });
 
@@ -251,18 +292,169 @@ describe('zenodo_upload()', () => {
           });
 
           try {
-            await zenodo_upload(
-              1234567,
-              dummy_file,
-              '1.2.3',
-              'sometoken',
-              true
-            );
+            await zenodo_upload(1234567, dummy_file, '1.2.3', 'sometoken', {
+              sandbox: true,
+            });
           } catch (error) {
             expect(error).toEqual(
               new Error('Zenodo API communication error: Not found')
             );
           }
+        });
+      });
+    });
+
+    describe('with checksum check against a mocked Zenodo sandbox API', () => {
+      describe('file not yet present', () => {
+        let result: any;
+
+        beforeAll(async () => {
+          mockedfetch.mockImplementation((url, init) => {
+            if (
+              url ===
+                'https://sandbox.zenodo.org/api/deposit/depositions/7654321' &&
+              init.method === 'GET'
+            ) {
+              const response: any = {
+                links: {
+                  bucket:
+                    'https://sandbox.zenodo.org/api/files/1e1986e8-f4d5-4d17-91be-2159f9c62b13',
+                },
+                metadata: {
+                  version: '0.1.0',
+                },
+                files: [],
+              };
+              const response_init = {
+                status: 200,
+                statusText: 'OK',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+              };
+              return new Response(JSON.stringify(response), response_init);
+            }
+            return mockedZenodoSandboxAPI(url, init);
+          });
+
+          result = await zenodo_upload(
+            1234567,
+            dummy_file,
+            '1.2.3',
+            'sometoken',
+            { sandbox: true, checksum: true }
+          );
+        });
+
+        it('should upload file to Zenodo', () => {
+          const expected_url =
+            'https://sandbox.zenodo.org/api/files/1e1986e8-f4d5-4d17-91be-2159f9c62b13/somefile.txt';
+          expect(fetch).toBeCalledWith(expected_url, expect.anything());
+        });
+
+        it('should return the doi of the new version', () => {
+          const expected_doi = 'https://doi.org/10.5072/zenodo.7654321';
+          expect(result.doi).toEqual(expected_doi);
+        });
+      });
+
+      describe('file already present with same checksum', () => {
+        beforeAll(async () => {
+          mockedfetch.mockImplementation((url, init) => {
+            if (
+              url ===
+                'https://sandbox.zenodo.org/api/deposit/depositions/7654321' &&
+              init.method === 'GET'
+            ) {
+              const response: any = {
+                links: {
+                  bucket:
+                    'https://sandbox.zenodo.org/api/files/1e1986e8-f4d5-4d17-91be-2159f9c62b13',
+                },
+                metadata: {
+                  version: '0.1.0',
+                },
+                files: [
+                  {
+                    id: 'fileid1',
+                    filename: 'somefile.txt',
+                    filesize: 9,
+                    checksum: 'a29e90948f4eee52168fab5fa9cfbcf8',
+                  },
+                ],
+              };
+              const response_init = {
+                status: 200,
+                statusText: 'OK',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+              };
+              return new Response(JSON.stringify(response), response_init);
+            }
+            return mockedZenodoSandboxAPI(url, init);
+          });
+        });
+
+        it('should have discarded draft', async () => {
+          expect.assertions(1);
+
+          try {
+            await zenodo_upload(1234567, dummy_file, '1.2.3', 'sometoken', {
+              sandbox: true,
+              checksum: true,
+            });
+          } catch {
+            const expected_url =
+              'https://sandbox.zenodo.org/api/deposit/depositions/7654321';
+            const expected_init = {
+              method: 'DELETE',
+              headers: {
+                Authorization: 'Bearer sometoken',
+              },
+            };
+            expect(fetch).toBeCalledWith(expected_url, expected_init);
+          }
+        });
+
+        it('should raise DraftDiscardedError', async () => {
+          expect.assertions(1);
+
+          try {
+            await zenodo_upload(1234567, dummy_file, '1.2.3', 'sometoken', {
+              sandbox: true,
+              checksum: true,
+            });
+          } catch (error) {
+            expect(error).toBeInstanceOf(DraftDiscardedError);
+          }
+        });
+      });
+
+      describe('file already present with different checksum', () => {
+        let result: any;
+
+        beforeAll(async () => {
+          mockedfetch.mockImplementation(mockedZenodoSandboxAPI);
+
+          result = await zenodo_upload(
+            1234567,
+            dummy_file,
+            '1.2.3',
+            'sometoken',
+            { sandbox: true, checksum: true }
+          );
+        });
+
+        it('should upload file to Zenodo', () => {
+          const expected_url =
+            'https://sandbox.zenodo.org/api/files/1e1986e8-f4d5-4d17-91be-2159f9c62b13/somefile.txt';
+          expect(fetch).toBeCalledWith(expected_url, expect.anything());
+        });
+
+        it('should return the doi of the new version', () => {
+          const expected_doi = 'https://doi.org/10.5072/zenodo.7654321';
+          expect(result.doi).toEqual(expected_doi);
         });
       });
     });

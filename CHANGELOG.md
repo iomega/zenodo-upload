@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.1] - 2020-03-27
+
+### Fixed
+
+* Error: Digest method not supported ([#7](https://github.com/iomega/zenodo-upload/issues/7))
+
+## [0.3.0] - 2020-03-27
+
+### Added
+
+* Perform checksum check and discard on match ([#5](https://github.com/iomega/zenodo-upload/issues/5))
+
 ## [0.2.3] - 2020-03-25
 
 ### Removed

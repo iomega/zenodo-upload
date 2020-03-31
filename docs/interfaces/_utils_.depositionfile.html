@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>PublishResult | @iomeg/zenodo-upload</title>
+	<title>DepositionFile | @iomeg/zenodo-upload</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_zenodo_draft_.html">&quot;zenodo_draft&quot;</a>
+					<a href="../modules/_utils_.html">&quot;utils&quot;</a>
 				</li>
 				<li>
-					<a href="_zenodo_draft_.publishresult.html">PublishResult</a>
+					<a href="_utils_.depositionfile.html">DepositionFile</a>
 				</li>
 			</ul>
-			<h1>Interface PublishResult</h1>
+			<h1>Interface DepositionFile</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">PublishResult</span>
+						<span class="target">DepositionFile</span>
 					</li>
 				</ul>
 			</section>
@@ -84,9 +84,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_zenodo_draft_.publishresult.html#doi" class="tsd-kind-icon">doi</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_zenodo_draft_.publishresult.html#html" class="tsd-kind-icon">html</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_zenodo_draft_.publishresult.html#id" class="tsd-kind-icon">id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_utils_.depositionfile.html#checksum" class="tsd-kind-icon">checksum</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_utils_.depositionfile.html#filename" class="tsd-kind-icon">filename</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_utils_.depositionfile.html#filesize" class="tsd-kind-icon">filesize</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_utils_.depositionfile.html#id" class="tsd-kind-icon">id</a></li>
 							</ul>
 						</section>
 					</div>
@@ -95,32 +96,42 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="doi" class="tsd-anchor"></a>
-					<h3>doi</h3>
-					<div class="tsd-signature tsd-kind-icon">doi<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="checksum" class="tsd-anchor"></a>
+					<h3>checksum</h3>
+					<div class="tsd-signature tsd-kind-icon">checksum<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/zenodo_draft.ts#L9">src/zenodo_draft.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/utils.ts#L21">src/utils.ts:21</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="html" class="tsd-anchor"></a>
-					<h3>html</h3>
-					<div class="tsd-signature tsd-kind-icon">html<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="filename" class="tsd-anchor"></a>
+					<h3>filename</h3>
+					<div class="tsd-signature tsd-kind-icon">filename<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/zenodo_draft.ts#L10">src/zenodo_draft.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/utils.ts#L19">src/utils.ts:19</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="filesize" class="tsd-anchor"></a>
+					<h3>filesize</h3>
+					<div class="tsd-signature tsd-kind-icon">filesize<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/utils.ts#L20">src/utils.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="id" class="tsd-anchor"></a>
 					<h3>id</h3>
-					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/zenodo_draft.ts#L8">src/zenodo_draft.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/utils.ts#L18">src/utils.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -138,10 +149,10 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/_index_.html">&quot;index&quot;</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="../modules/_utils_.html">&quot;utils&quot;</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/_zenodo_draft_.html">&quot;zenodo_<wbr>draft&quot;</a>
 					</li>
 				</ul>
@@ -149,26 +160,38 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/_zenodo_draft_.zenododraft.html" class="tsd-kind-icon">Zenodo<wbr>Draft</a>
+						<a href="../classes/_utils_.filepresenterror.html" class="tsd-kind-icon">File<wbr>Present<wbr>Error</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="_zenodo_draft_.publishresult.html" class="tsd-kind-icon">Publish<wbr>Result</a>
+						<a href="_utils_.depositionfile.html" class="tsd-kind-icon">Deposition<wbr>File</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_zenodo_draft_.publishresult.html#doi" class="tsd-kind-icon">doi</a>
+								<a href="_utils_.depositionfile.html#checksum" class="tsd-kind-icon">checksum</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_zenodo_draft_.publishresult.html#html" class="tsd-kind-icon">html</a>
+								<a href="_utils_.depositionfile.html#filename" class="tsd-kind-icon">filename</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_zenodo_draft_.publishresult.html#id" class="tsd-kind-icon">id</a>
+								<a href="_utils_.depositionfile.html#filesize" class="tsd-kind-icon">filesize</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_utils_.depositionfile.html#id" class="tsd-kind-icon">id</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="../modules/_utils_.html#auth_headers" class="tsd-kind-icon">auth_<wbr>headers</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="../modules/_utils_.html#determine_api_base_url" class="tsd-kind-icon">determine_<wbr>api_<wbr>base_<wbr>url</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="../modules/_utils_.html#is_same_file_present" class="tsd-kind-icon">is_<wbr>same_<wbr>file_<wbr>present</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
