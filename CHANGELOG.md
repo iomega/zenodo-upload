@@ -7,9 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+* Command line tool ([#1](https://github.com/iomega/zenodo-upload/issues/1))
+
 ### Fixed
 
-* Example does not work([#10](https://github.com/iomega/zenodo-upload/issues/10))
+* Example does not work ([#10](https://github.com/iomega/zenodo-upload/issues/10))
 
 ## [0.3.1] - 2020-03-27
 
