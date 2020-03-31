@@ -69,6 +69,14 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Manage draft entry on Zenodo</p>
+					</div>
+					<p>A draft can be created with <a href="../modules/_create_draft_.html#create_draft">create_draft</a> function.</p>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -128,19 +136,36 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/zenodo_draft.ts#L19">src/zenodo_draft.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/22e33eb/src/zenodo_draft.ts#L24">src/zenodo_draft.ts:24</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>url: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>URL of draft Zenodo upload</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>access_token: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The <a href="https://sandbox.zenodo.org/account/settings/applications/tokens/new/">Zenodo personal access token</a> with the <code>deposit:actions</code> and <code>deposit:write</code> scopes.</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>checksum: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>When true then an added file is checksum matched with file already in draft. If it matches an error is thrown.</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_zenodo_draft_.zenododraft.html" class="tsd-signature-type">ZenodoDraft</a></h4>
@@ -156,7 +181,7 @@
 					<div class="tsd-signature tsd-kind-icon">_metadata<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/zenodo_draft.ts#L18">src/zenodo_draft.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/22e33eb/src/zenodo_draft.ts#L23">src/zenodo_draft.ts:23</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -166,7 +191,7 @@
 					<div class="tsd-signature tsd-kind-icon">access_<wbr>token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/zenodo_draft.ts#L15">src/zenodo_draft.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/22e33eb/src/zenodo_draft.ts#L20">src/zenodo_draft.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -176,7 +201,7 @@
 					<div class="tsd-signature tsd-kind-icon">bucket<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/zenodo_draft.ts#L17">src/zenodo_draft.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/22e33eb/src/zenodo_draft.ts#L22">src/zenodo_draft.ts:22</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -186,7 +211,7 @@
 					<div class="tsd-signature tsd-kind-icon">checksum<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/zenodo_draft.ts#L16">src/zenodo_draft.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/22e33eb/src/zenodo_draft.ts#L21">src/zenodo_draft.ts:21</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -196,7 +221,7 @@
 					<div class="tsd-signature tsd-kind-icon">files<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_utils_.depositionfile.html" class="tsd-signature-type">DepositionFile</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/zenodo_draft.ts#L19">src/zenodo_draft.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/22e33eb/src/zenodo_draft.ts#L24">src/zenodo_draft.ts:24</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -206,7 +231,7 @@
 					<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/zenodo_draft.ts#L14">src/zenodo_draft.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/22e33eb/src/zenodo_draft.ts#L19">src/zenodo_draft.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -223,13 +248,29 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/zenodo_draft.ts#L59">src/zenodo_draft.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/22e33eb/src/zenodo_draft.ts#L107">src/zenodo_draft.ts:107</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Add file to draft</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>{FilePresentError} When checksum=true and file checksum matched with file already in draft.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>{Error} When communication with Zenodo API fails</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>file: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Path to file</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_utils_.depositionfile.html" class="tsd-signature-type">DepositionFile</a><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -246,7 +287,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/zenodo_draft.ts#L128">src/zenodo_draft.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/22e33eb/src/zenodo_draft.ts#L188">src/zenodo_draft.ts:188</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -269,7 +310,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/zenodo_draft.ts#L143">src/zenodo_draft.ts:143</a></li>
+									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/22e33eb/src/zenodo_draft.ts#L203">src/zenodo_draft.ts:203</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -286,9 +327,20 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/zenodo_draft.ts#L113">src/zenodo_draft.ts:113</a></li>
+									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/22e33eb/src/zenodo_draft.ts#L173">src/zenodo_draft.ts:173</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Discard the draft.</p>
+								</div>
+								<p>Any other methods on the object will fail after discarding.</p>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>{Error} When communication with Zenodo API fails</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
@@ -303,7 +355,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/zenodo_draft.ts#L137">src/zenodo_draft.ts:137</a></li>
+									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/22e33eb/src/zenodo_draft.ts#L197">src/zenodo_draft.ts:197</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -326,10 +378,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/zenodo_draft.ts#L33">src/zenodo_draft.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/22e33eb/src/zenodo_draft.ts#L58">src/zenodo_draft.ts:58</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get copy of the metadata.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>{Error} When communication with Zenodo API fails</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>metadata object of draft</p>
 						</li>
 					</ul>
 				</section>
@@ -343,9 +406,19 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/zenodo_draft.ts#L91">src/zenodo_draft.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/22e33eb/src/zenodo_draft.ts#L144">src/zenodo_draft.ts:144</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Publish draft Zenodo upload</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>{Error} When communication with Zenodo API fails</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_zenodo_draft_.publishresult.html" class="tsd-signature-type">PublishResult</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
@@ -360,13 +433,30 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/zenodo_draft.ts#L40">src/zenodo_draft.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/22e33eb/src/zenodo_draft.ts#L80">src/zenodo_draft.ts:80</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Overwrite complete metadata of draft</p>
+								</div>
+								<p>For example</p>
+								<pre><code class="language-javascript"><span class="hljs-keyword">const</span> metadata = <span class="hljs-keyword">await</span> draft.get_metdata();
+metadata.title = <span class="hljs-string">'My new title'</span>;
+<span class="hljs-keyword">await</span> draft.set_metadata(metadata);</code></pre>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>{Error} When communication with Zenodo API fails</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>metadata: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>New metadata object for draft</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -383,13 +473,26 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/zenodo_draft.ts#L27">src/zenodo_draft.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/22e33eb/src/zenodo_draft.ts#L45">src/zenodo_draft.ts:45</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Set version of draft</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>{Error} When communication with Zenodo API fails</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>version: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Update draft with given version</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -406,7 +509,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/0b9369c/src/zenodo_draft.ts#L124">src/zenodo_draft.ts:124</a></li>
+									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/22e33eb/src/zenodo_draft.ts#L184">src/zenodo_draft.ts:184</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -422,6 +525,9 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="../modules/_cli_.html">&quot;cli&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="../modules/_create_draft_.html">&quot;create_<wbr>draft&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -432,6 +538,9 @@
 					</li>
 					<li class="current tsd-kind-module">
 						<a href="../modules/_zenodo_draft_.html">&quot;zenodo_<wbr>draft&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_zenodo_upload_.html">&quot;zenodo_<wbr>upload&quot;</a>
 					</li>
 				</ul>
 			</nav>
@@ -515,11 +624,12 @@
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>

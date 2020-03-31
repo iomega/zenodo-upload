@@ -67,6 +67,7 @@
 				<a href="#zenodo-upload" id="zenodo-upload" style="color: inherit; text-decoration: none;">
 					<h1>Zenodo upload</h1>
 				</a>
+				<p>Uploads file to Zenodo.</p>
 				<p><a href="https://badge.fury.io/js/%40iomeg%2Fzenodo-upload"><img src="https://badge.fury.io/js/%40iomeg%2Fzenodo-upload.svg" alt="npm version"></a>
 					<a href="https://github.com/iomega/zenodo-upload/actions?query=workflow%3ACI"><img src="https://github.com/iomega/zenodo-upload/workflows/CI/badge.svg" alt="CI"></a>
 					<a href="https://sonarcloud.io/dashboard?id=iomega_zenodo-upload"><img src="https://sonarcloud.io/api/project_badges/measure?project=iomega_zenodo-upload&metric=alert_status" alt="Quality Gate Status"></a>
@@ -86,16 +87,44 @@
 				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 					<h2>Usage</h2>
 				</a>
+				<a href="#as-a-command-line-tool" id="as-a-command-line-tool" style="color: inherit; text-decoration: none;">
+					<h3>As a command line tool</h3>
+				</a>
+				<pre><code class="language-shell">npx zenodo_upload [--sandbox] [--no-checksum] &lt;deposition_id&gt; &lt;file&gt; &lt;version&gt; &lt;access_token&gt;</code></pre>
+				<p>To create new version (<code>1.2.3</code>) of <a href="https://zenodo.org/record/1234567">https://zenodo.org/record/1234567</a> by uploading a local file called <code>somefile</code>.</p>
+				<pre><code class="language-shell">npx --package @iomeg/zenodo-upload zenodo_upload 1234567 somefile 1.2.3 sometoken</code></pre>
+				<p>The <code>sometoken</code> string has to be replaced with a valid <a href="https://sandbox.zenodo.org/account/settings/applications/tokens/new/">Zenodo access token</a>.</p>
+				<a href="#as-a-library" id="as-a-library" style="color: inherit; text-decoration: none;">
+					<h3>As a library</h3>
+				</a>
 				<p>To create new version of <a href="https://zenodo.org/record/1234567">https://zenodo.org/record/1234567</a>.</p>
+				<p>Example usage using NodeJS:</p>
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
+<span class="hljs-keyword">const</span> zenodo_upload = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@iomeg/zenodo-upload'</span>).default;
+
+<span class="hljs-keyword">const</span> deposition_id = <span class="hljs-number">1234567</span>;
+<span class="hljs-keyword">const</span> filename = <span class="hljs-string">'somefile.txt'</span>;
+fs.writeFileSync(filename, <span class="hljs-string">'sometext'</span>, <span class="hljs-string">'utf8'</span>);
+<span class="hljs-keyword">const</span> version = <span class="hljs-string">'1.2.3'</span>;
+<span class="hljs-keyword">const</span> access_token = <span class="hljs-string">'sometoken'</span>;
+
+zenodo_upload(deposition_id, filename, version, access_token)
+    .then(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`New zenodo entry <span class="hljs-subst">${r.doi}</span> created`</span>))
+    .catch(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> <span class="hljs-built_in">console</span>.error(e))
+;</code></pre>
+				<p>Or in modern javascript</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> fs <span class="hljs-keyword">from</span> <span class="hljs-string">'fs'</span>;
 <span class="hljs-keyword">import</span> zenodo_upload <span class="hljs-keyword">from</span> <span class="hljs-string">'@iomeg/zenodo-upload'</span>;
 
 <span class="hljs-keyword">const</span> deposition_id = <span class="hljs-number">1234567</span>;
-<span class="hljs-keyword">const</span> file = fs.writeFileSync(<span class="hljs-string">'somefile.txt'</span>, <span class="hljs-string">'sometext'</span>, <span class="hljs-string">'utf8'</span>);
-<span class="hljs-keyword">const</span> version <span class="hljs-string">'1.2.3'</span>;
+<span class="hljs-keyword">const</span> filename = <span class="hljs-string">'somefile.txt'</span>;
+<span class="hljs-keyword">await</span> fs.promises.writeFile(filename, <span class="hljs-string">'sometext'</span>, <span class="hljs-string">'utf8'</span>);
+<span class="hljs-keyword">const</span> version = <span class="hljs-string">'1.2.3'</span>;
 <span class="hljs-keyword">const</span> access_token = <span class="hljs-string">'sometoken'</span>;
 
-<span class="hljs-keyword">await</span> zenodo_upload(deposition_id, file, version, access_token);</code></pre>
+<span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> zenodo_upload(deposition_id, filename, version, access_token);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`New zenodo entry <span class="hljs-subst">${result.doi}</span> created`</span>);</code></pre>
+				<p>To run the example code you will need a valid Zenodo access token and a deposition id that can be written to by that token.</p>
 				<a href="#development" id="development" style="color: inherit; text-decoration: none;">
 					<h2>Development</h2>
 				</a>
@@ -121,6 +150,9 @@
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="modules/_cli_.html">&quot;cli&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="modules/_create_draft_.html">&quot;create_<wbr>draft&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -131,6 +163,9 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/_zenodo_draft_.html">&quot;zenodo_<wbr>draft&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_zenodo_upload_.html">&quot;zenodo_<wbr>upload&quot;</a>
 					</li>
 				</ul>
 			</nav>
@@ -146,6 +181,7 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 			</ul>
 			<ul class="tsd-legend">
