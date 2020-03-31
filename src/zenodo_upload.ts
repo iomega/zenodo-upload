@@ -22,11 +22,13 @@ export class DraftDiscardedError extends Error {
  * import zenodo_upload from '@iomeg/zenodo-upload';
  *
  * const deposition_id = 1234567;
- * const file = fs.writeFileSync('somefile.txt', 'sometext', 'utf8');
- * const version '1.2.3';
+ * const filename = 'somefile.txt';
+ * await fs.promises.writeFile(filename, 'sometext', 'utf8');
+ * const version = '1.2.3';
  * const access_token = 'sometoken';
  *
- * await zenodo_upload(deposition_id, file, version, access_token);
+ * const result = await zenodo_upload(deposition_id, filename, version, access_token);
+ * console.log(`New zenodo entry ${result.doi} created`);
  * ```
  *
  * @param deposition_id Zenodo upload identifier
