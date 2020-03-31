@@ -27,6 +27,22 @@ npm install @iomeg/zenodo-upload
 
 ## Usage
 
+### As a command line tool
+
+```shell
+npx zenodo_upload [--sandbox] [--no-checksum] <deposition_id> <file> <version> <access_token>
+```
+
+To create new version (`1.2.3`) of [https://zenodo.org/record/1234567](https://zenodo.org/record/1234567) by uploading a local file called `somefile`.
+
+```shell
+npx --package @iomeg/zenodo-upload zenodo_upload 1234567 somefile 1.2.3 sometoken
+```
+
+The `sometoken` string has to be replaced with a valid [Zenodo access token](https://sandbox.zenodo.org/account/settings/applications/tokens/new/).
+
+### As a library
+
 To create new version of [https://zenodo.org/record/1234567](https://zenodo.org/record/1234567).
 
 Example usage using NodeJS:
