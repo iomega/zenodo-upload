@@ -56,6 +56,9 @@ function handler(argv: any) {
     });
 }
 
+/**
+ * Command line tool implementation
+ */
 export function main() {
   const argv = yargs
     .version(false) // disabled interferes with <version> positional argument
