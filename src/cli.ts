@@ -58,14 +58,22 @@ function handler(argv: any) {
 
 /**
  * Command line tool implementation
+ *
+ * @param args When empty will use arguments from process.argv
  */
-export function main() {
-  const argv = yargs
+export function main(args: string[] = []) {
+  const parser = yargs
     .version(false) // disabled interferes with <version> positional argument
     .usage(
       '$0 [--sandbox] [--no-checksum] <deposition_id> <file> <version> <access_token>',
       'Create new version of a Zenodo upload',
       builder
-    ).argv;
+    );
+  let argv;
+  if (args.length > 0) {
+    argv = parser.parse(args);
+  } else {
+    argv = parser.parse();
+  }
   handler(argv);
 }
