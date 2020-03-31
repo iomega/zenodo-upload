@@ -1,8 +1,8 @@
 import yargs from 'yargs';
 import zenodo_upload from './zenodo_upload';
 
-function builder(yargs: any) {
-  return yargs
+function builder(instance: any) {
+  return instance
     .positional('deposition_id', {
       type: 'number',
       description:
