@@ -1,5 +1,5 @@
 import { main } from '../src/cli';
-import zenodo_upload from '../src/zenodo_upload';
+import { zenodo_upload } from '../src/zenodo_upload';
 jest.mock('../src/zenodo_upload');
 
 describe('main()', () => {

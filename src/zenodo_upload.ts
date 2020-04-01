@@ -41,7 +41,7 @@ export class DraftDiscardedError extends Error {
  *
  * @returns The id, url of the html page and the DOI of the new version.
  */
-export default async function zenodo_upload(
+export async function zenodo_upload(
   deposition_id: number,
   file: string,
   version: string,

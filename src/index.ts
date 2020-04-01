@@ -1,6 +1,5 @@
-import zenodo_upload from './zenodo_upload';
-import { main } from './cli';
-
-export default zenodo_upload;
-
-export const climain = main;
+export { zenodo_upload as default, DraftDiscardedError } from './zenodo_upload';
+export { main as climain } from './cli';
+export * from './zenodo_draft';
+export * from './create_draft';
+export { FilePresentError } from './utils';
