@@ -99,7 +99,7 @@
 					<div class="tsd-signature tsd-kind-icon">DEFAULT_<wbr>OPTIONS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol"> = Object.freeze({sandbox: false,checksum: false,})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/8f61a46/src/create_draft.ts#L16">src/create_draft.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/492478c/src/create_draft.ts#L16">src/create_draft.ts:16</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -121,13 +121,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/8f61a46/src/create_draft.ts#L30">src/create_draft.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/492478c/src/create_draft.ts#L42">src/create_draft.ts:42</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Create a draft from an existing Zenodo upload</p>
 								</div>
+								<p>For example to create a draft from <a href="https://zenodo.org/record/1234567">https://zenodo.org/record/1234567</a>.</p>
+								<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { create_draft } <span class="hljs-keyword">from</span> <span class="hljs-string">'@iomeg/zenodo-upload'</span>;
+
+<span class="hljs-keyword">const</span> deposition_id = <span class="hljs-number">1234567</span>;
+<span class="hljs-keyword">const</span> access_token = <span class="hljs-string">'sometoken'</span>;
+
+<span class="hljs-keyword">const</span> draft = <span class="hljs-keyword">await</span> create_draft(deposition_id, access_token);
+draft.discard();</code></pre>
 								<dl class="tsd-comment-tags">
 									<dt>throws</dt>
 									<dd><p>{Error} When communication with Zenodo API fails</p>
