@@ -13,7 +13,21 @@ export interface PublishResult {
 /**
  * Manage draft entry on Zenodo
  *
- * A draft can be created with {@link create_draft} function.
+ * Example of managing a already created Zenodo draft.
+ *
+ * ```javascript
+ * import { ZenodoDraft } from '@iomeg/zenodo-upload';
+ *
+ * const draft_url = 'https://zenodo.org/record/1234567';
+ * const access_token = 'sometoken';
+ * const checksum = true;
+ * const draft  = new ZenodoDraft(draft_url, access_token, checksum);
+ * await draft.add_file('./somefile');
+ * await draft.set_version('1.2.3');
+ * await draft.publish();
+ * ```
+ *
+ * A draft can be created on the Zenodo website by creating a new version without publishing it or with the {@link create_draft} function.
  */
 export class ZenodoDraft {
   private url: string;
@@ -37,6 +51,12 @@ export class ZenodoDraft {
 
   /**
    * Set version of draft
+   *
+   * For example
+   *
+   * ```javascript
+   * await draft.set_version('1.2.3');
+   * ```
    *
    * @param version Update draft with given version
    *
@@ -68,7 +88,7 @@ export class ZenodoDraft {
    * For example
    *
    * ```javascript
-   * const metadata = await draft.get_metdata();
+   * const metadata = await draft.get_metadata();
    * metadata.title = 'My new title';
    * await draft.set_metadata(metadata);
    * ```
@@ -92,12 +112,22 @@ export class ZenodoDraft {
       const json = await response.json();
       this.fill_cache(json);
     } else {
-      throw new Error(`Zenodo API communication error: ${response.statusText}`);
+      throw new Error(
+        `Zenodo API communication error updating metadata: ${
+          response.statusText
+        }, ${await response.text()}`
+      );
     }
   }
 
   /**
    * Add file to draft
+   *
+   * For example to add a file called `./somefile`.
+   *
+   * ```javascript
+   * await draft.add_file('./somefile');
+   * ```
    *
    * @param file Path to file
    *
@@ -132,12 +162,22 @@ export class ZenodoDraft {
       this.add_file2cache(rbody);
       return rbody;
     } else {
-      throw new Error(`Zenodo API communication error: ${response.statusText}`);
+      throw new Error(
+        `Zenodo API communication error adding file: ${
+          response.statusText
+        }, ${await response.text()}`
+      );
     }
   }
 
   /**
    * Publish draft Zenodo upload
+   *
+   * For example
+   *
+   * ```javascript
+   * await draft.publish();
+   * ```
    *
    * @throws {Error} When communication with Zenodo API fails
    */
@@ -159,7 +199,11 @@ export class ZenodoDraft {
       };
       return result;
     } else {
-      throw new Error(`Zenodo API communication error: ${response.statusText}`);
+      throw new Error(
+        `Zenodo API communication error publishing: ${
+          response.statusText
+        }, ${await response.text()}`
+      );
     }
   }
 
@@ -168,6 +212,11 @@ export class ZenodoDraft {
    *
    * Any other methods on the object will fail after discarding.
    *
+   * For example
+   *
+   * ```javascript
+   * await draft.discard();
+   * ```
    * @throws {Error} When communication with Zenodo API fails
    */
   async discard() {
@@ -177,7 +226,11 @@ export class ZenodoDraft {
     };
     const response = await fetch(this.url, init as any);
     if (!response.ok) {
-      throw new Error(`Zenodo API communication error: ${response.statusText}`);
+      throw new Error(
+        `Zenodo API communication error discarding: ${
+          response.statusText
+        }, ${await response.text()}`
+      );
     }
   }
 
@@ -210,7 +263,11 @@ export class ZenodoDraft {
       const body = await response.json();
       this.fill_cache(body);
     } else {
-      throw new Error(`Zenodo API communication error: ${response.statusText}`);
+      throw new Error(
+        `Zenodo API communication error fetching draft: ${
+          response.statusText
+        }, ${await response.text()}`
+      );
     }
   }
 }

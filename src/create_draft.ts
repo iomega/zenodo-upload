@@ -21,6 +21,18 @@ export const DEFAULT_OPTIONS = Object.freeze({
 /**
  * Create a draft from an existing Zenodo upload
  *
+ * For example to create a draft from [https://zenodo.org/record/1234567](https://zenodo.org/record/1234567).
+ *
+ * ```javascript
+ * import { create_draft } from '@iomeg/zenodo-upload';
+ *
+ * const deposition_id = 1234567;
+ * const access_token = 'sometoken';
+ *
+ * const draft = await create_draft(deposition_id, access_token);
+ * draft.discard();
+ * ```
+ *
  * @param deposition_id The deposition identifier of a Zenodo upload
  * @param access_token The [Zenodo personal access token](https://sandbox.zenodo.org/account/settings/applications/tokens/new/) with the `deposit:actions` and `deposit:write` scopes.
  * @param options
@@ -45,6 +57,10 @@ export async function create_draft(
     const body = await response.json();
     return new ZenodoDraft(body.links.latest_draft, access_token, checksum);
   } else {
-    throw new Error(`Zenodo API communication error: ${response.statusText}`);
+    throw new Error(
+      `Zenodo API communication error creating draft: ${
+        response.statusText
+      }, ${await response.text()}`
+    );
   }
 }

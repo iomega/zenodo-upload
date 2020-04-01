@@ -1,5 +1,5 @@
 import yargs from 'yargs';
-import zenodo_upload from './zenodo_upload';
+import { zenodo_upload } from './zenodo_upload';
 
 function builder(instance: any) {
   return instance
