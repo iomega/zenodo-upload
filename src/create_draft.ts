@@ -45,6 +45,10 @@ export async function create_draft(
     const body = await response.json();
     return new ZenodoDraft(body.links.latest_draft, access_token, checksum);
   } else {
-    throw new Error(`Zenodo API communication error: ${response.statusText}`);
+    throw new Error(
+      `Zenodo API communication error creating draft: ${
+        response.statusText
+      }, ${await response.text()}`
+    );
   }
 }

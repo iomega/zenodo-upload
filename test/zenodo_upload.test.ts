@@ -257,51 +257,57 @@ describe('zenodo_upload()', () => {
           'when wrong deposition id is given',
           'https://sandbox.zenodo.org/api/deposit/depositions/1234567/actions/newversion',
           'POST',
+          'Zenodo API communication error creating draft: Not found, Something bad happened',
         ],
         [
           'when retrieving new deposition fails',
           'https://sandbox.zenodo.org/api/deposit/depositions/7654321',
           'GET',
+          'Zenodo API communication error fetching draft: Not found, Something bad happened',
         ],
         [
-          'when upload fails',
+          'when adding file fails',
           'https://sandbox.zenodo.org/api/files/1e1986e8-f4d5-4d17-91be-2159f9c62b13/somefile.txt',
           'PUT',
+          'Zenodo API communication error adding file: Not found, Something bad happened',
         ],
         [
           'when setting new version fails',
           'https://sandbox.zenodo.org/api/deposit/depositions/7654321',
           'PUT',
+          'Zenodo API communication error updating metadata: Not found, Something bad happened',
         ],
         [
           'when publishing fails',
           'https://sandbox.zenodo.org/api/deposit/depositions/7654321/actions/publish',
           'POST',
+          'Zenodo API communication error publishing: Not found, Something bad happened',
         ],
-      ])('should throw error', (why, broken_url, broken_method) => {
-        it(why, async () => {
-          expect.assertions(1);
-          mockedfetch.mockImplementation((url, init) => {
-            if (url === broken_url && init.method === broken_method) {
-              return new Response('error', {
-                status: 404,
-                statusText: 'Not found',
-              });
-            }
-            return mockedZenodoSandboxAPI(url, init);
-          });
-
-          try {
-            await zenodo_upload(1234567, dummy_file, '1.2.3', 'sometoken', {
-              sandbox: true,
+      ])(
+        'should throw error',
+        (why, broken_url, broken_method, expected_message) => {
+          it(why, async () => {
+            expect.assertions(1);
+            mockedfetch.mockImplementation((url, init) => {
+              if (url === broken_url && init.method === broken_method) {
+                return new Response('Something bad happened', {
+                  status: 404,
+                  statusText: 'Not found',
+                });
+              }
+              return mockedZenodoSandboxAPI(url, init);
             });
-          } catch (error) {
-            expect(error).toEqual(
-              new Error('Zenodo API communication error: Not found')
-            );
-          }
-        });
-      });
+
+            try {
+              await zenodo_upload(1234567, dummy_file, '1.2.3', 'sometoken', {
+                sandbox: true,
+              });
+            } catch (error) {
+              expect(error).toEqual(new Error(expected_message));
+            }
+          });
+        }
+      );
     });
 
     describe('with checksum check against a mocked Zenodo sandbox API', () => {

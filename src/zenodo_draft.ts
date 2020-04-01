@@ -92,7 +92,11 @@ export class ZenodoDraft {
       const json = await response.json();
       this.fill_cache(json);
     } else {
-      throw new Error(`Zenodo API communication error: ${response.statusText}`);
+      throw new Error(
+        `Zenodo API communication error updating metadata: ${
+          response.statusText
+        }, ${await response.text()}`
+      );
     }
   }
 
@@ -132,7 +136,11 @@ export class ZenodoDraft {
       this.add_file2cache(rbody);
       return rbody;
     } else {
-      throw new Error(`Zenodo API communication error: ${response.statusText}`);
+      throw new Error(
+        `Zenodo API communication error adding file: ${
+          response.statusText
+        }, ${await response.text()}`
+      );
     }
   }
 
@@ -159,7 +167,11 @@ export class ZenodoDraft {
       };
       return result;
     } else {
-      throw new Error(`Zenodo API communication error: ${response.statusText}`);
+      throw new Error(
+        `Zenodo API communication error publishing: ${
+          response.statusText
+        }, ${await response.text()}`
+      );
     }
   }
 
@@ -177,7 +189,11 @@ export class ZenodoDraft {
     };
     const response = await fetch(this.url, init as any);
     if (!response.ok) {
-      throw new Error(`Zenodo API communication error: ${response.statusText}`);
+      throw new Error(
+        `Zenodo API communication error discarding: ${
+          response.statusText
+        }, ${await response.text()}`
+      );
     }
   }
 
@@ -210,7 +226,11 @@ export class ZenodoDraft {
       const body = await response.json();
       this.fill_cache(body);
     } else {
-      throw new Error(`Zenodo API communication error: ${response.statusText}`);
+      throw new Error(
+        `Zenodo API communication error fetching draft: ${
+          response.statusText
+        }, ${await response.text()}`
+      );
     }
   }
 }
