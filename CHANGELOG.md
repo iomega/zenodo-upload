@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0] - 2020-04-02
+
+### Fixed
+
+* Publishing date not updated ([#13](https://github.com/iomega/zenodo-upload/issues/13))
+* Unable to use concept DOI ([#12](https://github.com/iomega/zenodo-upload/issues/12))
+
 ## [0.4.1] - 2020-04-01
 
 ### Added

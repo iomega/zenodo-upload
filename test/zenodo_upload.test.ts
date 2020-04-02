@@ -87,6 +87,7 @@ const mockedZenodoSandboxAPI = async (url: string, init: RequestInit) => {
       },
       metadata: {
         version: '1.2.3',
+        publication_date: '2020-04-02',
       },
       files: [
         {
@@ -230,9 +231,9 @@ describe('zenodo_upload()', () => {
         const recieved_init = mockedfetch.mock.calls.find(
           args => args[0] === expected_url && args[1].method === 'PUT'
         )[1];
-        const expected_version = '1.2.3';
-        const version = JSON.parse(recieved_init.body).metadata.version;
-        expect(version).toEqual(expected_version);
+        const metadata = JSON.parse(recieved_init.body).metadata;
+        expect(metadata.version).toEqual('1.2.3');
+        expect(metadata.publication_date).toMatch(/\d\d\d\d-\d\d-\d\d/);
       });
 
       it('should return the identifier new version', () => {
@@ -257,31 +258,31 @@ describe('zenodo_upload()', () => {
           'when wrong deposition id is given',
           'https://sandbox.zenodo.org/api/deposit/depositions/1234567/actions/newversion',
           'POST',
-          'Zenodo API communication error creating draft: Not found, Something bad happened',
+          'Zenodo API communication error creating draft: Internal server error, Something bad happened',
         ],
         [
           'when retrieving new deposition fails',
           'https://sandbox.zenodo.org/api/deposit/depositions/7654321',
           'GET',
-          'Zenodo API communication error fetching draft: Not found, Something bad happened',
+          'Zenodo API communication error fetching draft: Internal server error, Something bad happened',
         ],
         [
           'when adding file fails',
           'https://sandbox.zenodo.org/api/files/1e1986e8-f4d5-4d17-91be-2159f9c62b13/somefile.txt',
           'PUT',
-          'Zenodo API communication error adding file: Not found, Something bad happened',
+          'Zenodo API communication error adding file: Internal server error, Something bad happened',
         ],
         [
           'when setting new version fails',
           'https://sandbox.zenodo.org/api/deposit/depositions/7654321',
           'PUT',
-          'Zenodo API communication error updating metadata: Not found, Something bad happened',
+          'Zenodo API communication error updating metadata: Internal server error, Something bad happened',
         ],
         [
           'when publishing fails',
           'https://sandbox.zenodo.org/api/deposit/depositions/7654321/actions/publish',
           'POST',
-          'Zenodo API communication error publishing: Not found, Something bad happened',
+          'Zenodo API communication error publishing: Internal server error, Something bad happened',
         ],
       ])(
         'should throw error',
@@ -291,8 +292,8 @@ describe('zenodo_upload()', () => {
             mockedfetch.mockImplementation((url, init) => {
               if (url === broken_url && init.method === broken_method) {
                 return new Response('Something bad happened', {
-                  status: 404,
-                  statusText: 'Not found',
+                  status: 500,
+                  statusText: 'Internal server error',
                 });
               }
               return mockedZenodoSandboxAPI(url, init);
