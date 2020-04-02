@@ -87,6 +87,7 @@ const mockedZenodoSandboxAPI = async (url: string, init: RequestInit) => {
       },
       metadata: {
         version: '1.2.3',
+        publication_date: '2020-04-02',
       },
       files: [
         {
@@ -230,9 +231,9 @@ describe('zenodo_upload()', () => {
         const recieved_init = mockedfetch.mock.calls.find(
           args => args[0] === expected_url && args[1].method === 'PUT'
         )[1];
-        const expected_version = '1.2.3';
-        const version = JSON.parse(recieved_init.body).metadata.version;
-        expect(version).toEqual(expected_version);
+        const metadata = JSON.parse(recieved_init.body).metadata;
+        expect(metadata.version).toEqual('1.2.3');
+        expect(metadata.publication_date).toMatch(/\d\d\d\d-\d\d-\d\d/);
       });
 
       it('should return the identifier new version', () => {

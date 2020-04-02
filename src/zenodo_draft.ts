@@ -59,12 +59,14 @@ export class ZenodoDraft {
    * ```
    *
    * @param version Update draft with given version
+   * @param publication_date Date of publication. Defaults to today.
    *
    * @throws {Error} When communication with Zenodo API fails
    */
-  async set_version(version: string) {
+  async set_version(version: string, publication_date = new Date()) {
     const metadata = await this.get_metadata();
     metadata.version = version;
+    metadata.publication_date = publication_date.toISOString().slice(0, 10);
     await this.set_metadata(metadata);
   }
 

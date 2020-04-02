@@ -74,7 +74,7 @@
 					<div class="lead">
 						<p>Manage draft entry on Zenodo</p>
 					</div>
-					<p>Example of managing a Zenodo draft with a file called <code>./somefile</code>.</p>
+					<p>Example of managing a already created Zenodo draft.</p>
 					<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { ZenodoDraft } <span class="hljs-keyword">from</span> <span class="hljs-string">'@iomeg/zenodo-upload'</span>;
 
 <span class="hljs-keyword">const</span> draft_url = <span class="hljs-string">'https://zenodo.org/record/1234567'</span>;
@@ -84,7 +84,7 @@
 <span class="hljs-keyword">await</span> draft.add_file(<span class="hljs-string">'./somefile'</span>);
 <span class="hljs-keyword">await</span> draft.set_version(<span class="hljs-string">'1.2.3'</span>);
 <span class="hljs-keyword">await</span> draft.publish();</code></pre>
-					<p>A draft can be created on the Zenodo website or with <a href="../modules/_create_draft_.html#create_draft">create_draft</a> function.</p>
+					<p>A draft can be created on the Zenodo website by creating a new version without publishing it or with the <a href="../modules/_create_draft_.html#create_draft">create_draft</a> function.</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -146,7 +146,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/492478c/src/zenodo_draft.ts#L38">src/zenodo_draft.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/c00f7da/src/zenodo_draft.ts#L38">src/zenodo_draft.ts:38</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -191,7 +191,7 @@
 					<div class="tsd-signature tsd-kind-icon">_metadata<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/492478c/src/zenodo_draft.ts#L37">src/zenodo_draft.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/c00f7da/src/zenodo_draft.ts#L37">src/zenodo_draft.ts:37</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -201,7 +201,7 @@
 					<div class="tsd-signature tsd-kind-icon">access_<wbr>token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/492478c/src/zenodo_draft.ts#L34">src/zenodo_draft.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/c00f7da/src/zenodo_draft.ts#L34">src/zenodo_draft.ts:34</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -211,7 +211,7 @@
 					<div class="tsd-signature tsd-kind-icon">bucket<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/492478c/src/zenodo_draft.ts#L36">src/zenodo_draft.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/c00f7da/src/zenodo_draft.ts#L36">src/zenodo_draft.ts:36</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -221,7 +221,7 @@
 					<div class="tsd-signature tsd-kind-icon">checksum<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/492478c/src/zenodo_draft.ts#L35">src/zenodo_draft.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/c00f7da/src/zenodo_draft.ts#L35">src/zenodo_draft.ts:35</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -231,7 +231,7 @@
 					<div class="tsd-signature tsd-kind-icon">files<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_utils_.depositionfile.html" class="tsd-signature-type">DepositionFile</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/492478c/src/zenodo_draft.ts#L38">src/zenodo_draft.ts:38</a></li>
+							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/c00f7da/src/zenodo_draft.ts#L38">src/zenodo_draft.ts:38</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -241,7 +241,7 @@
 					<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/492478c/src/zenodo_draft.ts#L33">src/zenodo_draft.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/c00f7da/src/zenodo_draft.ts#L33">src/zenodo_draft.ts:33</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -258,7 +258,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/492478c/src/zenodo_draft.ts#L137">src/zenodo_draft.ts:137</a></li>
+									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/c00f7da/src/zenodo_draft.ts#L139">src/zenodo_draft.ts:139</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -299,7 +299,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/492478c/src/zenodo_draft.ts#L241">src/zenodo_draft.ts:241</a></li>
+									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/c00f7da/src/zenodo_draft.ts#L243">src/zenodo_draft.ts:243</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -322,7 +322,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/492478c/src/zenodo_draft.ts#L256">src/zenodo_draft.ts:256</a></li>
+									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/c00f7da/src/zenodo_draft.ts#L258">src/zenodo_draft.ts:258</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -339,7 +339,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/492478c/src/zenodo_draft.ts#L222">src/zenodo_draft.ts:222</a></li>
+									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/c00f7da/src/zenodo_draft.ts#L224">src/zenodo_draft.ts:224</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -369,7 +369,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/492478c/src/zenodo_draft.ts#L250">src/zenodo_draft.ts:250</a></li>
+									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/c00f7da/src/zenodo_draft.ts#L252">src/zenodo_draft.ts:252</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -392,7 +392,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/492478c/src/zenodo_draft.ts#L78">src/zenodo_draft.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/c00f7da/src/zenodo_draft.ts#L80">src/zenodo_draft.ts:80</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -420,7 +420,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/492478c/src/zenodo_draft.ts#L184">src/zenodo_draft.ts:184</a></li>
+									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/c00f7da/src/zenodo_draft.ts#L186">src/zenodo_draft.ts:186</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -449,7 +449,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/492478c/src/zenodo_draft.ts#L100">src/zenodo_draft.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/c00f7da/src/zenodo_draft.ts#L102">src/zenodo_draft.ts:102</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -483,13 +483,13 @@ metadata.title = <span class="hljs-string">'My new title'</span>;
 					<a name="set_version" class="tsd-anchor"></a>
 					<h3>set_<wbr>version</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set_<wbr>version<span class="tsd-signature-symbol">(</span>version<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">set_<wbr>version<span class="tsd-signature-symbol">(</span>version<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, publication_date<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/492478c/src/zenodo_draft.ts#L65">src/zenodo_draft.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/c00f7da/src/zenodo_draft.ts#L66">src/zenodo_draft.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -512,6 +512,12 @@ metadata.title = <span class="hljs-string">'My new title'</span>;
 										<p>Update draft with given version</p>
 									</div>
 								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> publication_date: <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> = new Date()</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Date of publication. Defaults to today.</p>
+									</div>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
@@ -527,7 +533,7 @@ metadata.title = <span class="hljs-string">'My new title'</span>;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/492478c/src/zenodo_draft.ts#L237">src/zenodo_draft.ts:237</a></li>
+									<li>Defined in <a href="https://github.com/iomega/zenodo-upload/blob/c00f7da/src/zenodo_draft.ts#L239">src/zenodo_draft.ts:239</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>

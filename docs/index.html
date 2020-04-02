@@ -90,7 +90,7 @@
 				<a href="#as-a-command-line-tool" id="as-a-command-line-tool" style="color: inherit; text-decoration: none;">
 					<h3>As a command line tool</h3>
 				</a>
-				<pre><code class="language-shell">npx zenodo_upload [--sandbox] [--no-checksum] &lt;deposition_id&gt; &lt;file&gt; &lt;version&gt; &lt;access_token&gt;</code></pre>
+				<pre><code class="language-shell">npx --package @iomeg/zenodo-upload zenodo_upload [--sandbox] [--no-checksum] &lt;deposition_id&gt; &lt;file&gt; &lt;version&gt; &lt;access_token&gt;</code></pre>
 				<p>To create new version (<code>1.2.3</code>) of <a href="https://zenodo.org/record/1234567">https://zenodo.org/record/1234567</a> by uploading a local file called <code>somefile</code>.</p>
 				<pre><code class="language-shell">npx --package @iomeg/zenodo-upload zenodo_upload 1234567 somefile 1.2.3 sometoken</code></pre>
 				<p>The <code>sometoken</code> string has to be replaced with a valid <a href="https://sandbox.zenodo.org/account/settings/applications/tokens/new/">Zenodo access token</a>.</p>
