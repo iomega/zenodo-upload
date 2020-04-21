@@ -4,3 +4,4 @@ node_modules
 dist
 coverage
 eslint-report.json
+test-report.xml
