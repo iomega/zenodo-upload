@@ -107,6 +107,12 @@ To runs the test watcher (Jest) in an interactive mode. By default, runs tests r
 yarn test
 ```
 
+To run linter and fix fixable errors.
+
+```shell
+yarn lint --fix
+```
+
 ## Credits
 
 This project was bootstrapped with [TSDX](https://github.com/jaredpalmer/tsdx).
