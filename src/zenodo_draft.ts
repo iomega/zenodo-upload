@@ -18,7 +18,7 @@ export interface PublishResult {
  * ```javascript
  * import { ZenodoDraft } from '@iomeg/zenodo-upload';
  *
- * const draft_url = 'https://zenodo.org/record/1234567';
+ * const draft_url = 'https://zenodo.org/api/deposit/depositions/1234567';
  * const access_token = 'sometoken';
  * const checksum = true;
  * const draft  = new ZenodoDraft(draft_url, access_token, checksum);
@@ -39,7 +39,7 @@ export class ZenodoDraft {
 
   /**
    *
-   * @param url URL of draft Zenodo upload
+   * @param url URL of draft Zenodo upload, something like https://zenodo.org/api/deposit/depositions/1234567
    * @param access_token The [Zenodo personal access token](https://sandbox.zenodo.org/account/settings/applications/tokens/new/) with the `deposit:actions` and `deposit:write` scopes.
    * @param checksum When true then an added file is checksum matched with file already in draft. If it matches an error is thrown.
    */
