@@ -8,6 +8,7 @@ Uploads file to Zenodo.
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=iomega_zenodo-upload&metric=coverage)](https://sonarcloud.io/dashboard?id=iomega_zenodo-upload)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3726851.svg)](https://doi.org/10.5281/zenodo.3726851)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/3805/badge)](https://bestpractices.coreinfrastructure.org/projects/3805)
+[![fair-software.eu](https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8B%20%20%E2%97%8F%20%20%E2%97%8F-yellow)](https://fair-software.eu)
 
 A JavaScript library to create a new version of a [Zenodo](https://zenodo.org) upload with a file.
 
