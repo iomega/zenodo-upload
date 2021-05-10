@@ -24,7 +24,7 @@
     "test": "tsdx test",
     "lint": "tsdx lint",
     "prepare": "tsdx build && cp src/climain.js dist/climain.js",
-    "apidocs": "typedoc --disableOutputCheck --mode modules --includeVersion --out docs src"
+    "apidocs": "typedoc --disableOutputCheck --includeVersion --out docs src"
   },
   "peerDependencies": {},
   "husky": {
@@ -51,7 +51,7 @@
     "tmp-promise": "^2.0.2",
     "tsdx": "^0.14.1",
     "tslib": "^2.0.0",
-    "typedoc": "^0.17.4",
+    "typedoc": "^0.20.36",
     "typescript": "^4.2.4",
     "unzipper": "^0.10.10"
   },
