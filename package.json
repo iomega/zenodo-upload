@@ -1,5 +1,5 @@
 {
-  "version": "0.5.0",
+  "version": "0.5.1",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "prepare": "tsdx build && cp src/climain.js dist/climain.js",
     "apidocs": "typedoc --disableOutputCheck --mode modules --includeVersion --out docs src"
   },
+  "peerDependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint"
@@ -44,21 +45,21 @@
     "@types/jest": "^25.1.4",
     "@types/node-fetch": "^2.5.5",
     "@types/tmp": "^0.1.0",
-    "@types/yargs": "^15.0.4",
-    "husky": "^4.2.3",
+    "@types/yargs": "^16.0.1",
+    "husky": "^6.0.0",
     "jest-sonar-reporter": "^2.0.0",
     "tmp-promise": "^2.0.2",
     "tsdx": "^0.14.1",
-    "tslib": "^1.11.1",
+    "tslib": "^2.0.0",
     "typedoc": "^0.17.4",
-    "typescript": "^3.8.3",
+    "typescript": "^4.2.4",
     "unzipper": "^0.10.10"
   },
   "dependencies": {
-    "file-type": "^14.1.4",
+    "file-type": "^16.4.0",
     "hasha": "^5.2.0",
     "node-fetch": "^2.6.0",
-    "yargs": "^15.3.1"
+    "yargs": "^17.0.1"
   },
   "bin": {
     "zenodo_upload": "./dist/climain.js"
